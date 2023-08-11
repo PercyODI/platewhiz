@@ -6,7 +6,7 @@ services:
     region: oregon # optional (defaults to oregon)
     plan: free # optional (defaults to starter instance type)
     branch: main # optional (defaults to master)
-    rootDir: platwhiz
+    rootDir: platewhiz
     # dockerCommand: ./webdis.sh # optional (defaults to Dockerfile command)
     startCommand: npm run start
     buildCommand: npm run build
