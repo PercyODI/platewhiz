@@ -4,7 +4,7 @@ services:
     runtime: node
     repo: https://github.com/PercyODI/platewhiz # optional
     region: oregon # optional (defaults to oregon)
-    plan: free # optional (defaults to starter instance type)
+    plan: starter # optional (defaults to starter instance type)
     branch: main # optional (defaults to master)
     rootDir: platewhiz
     startCommand: yarn start
