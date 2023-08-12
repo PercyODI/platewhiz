@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: platwhiz
+    name: platewhiz
     runtime: node
     repo: https://github.com/PercyODI/platewhiz # optional
     region: oregon # optional (defaults to oregon)
