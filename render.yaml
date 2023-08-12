@@ -7,7 +7,6 @@ services:
     plan: free # optional (defaults to starter instance type)
     branch: main # optional (defaults to master)
     rootDir: platewhiz
-    # dockerCommand: ./webdis.sh # optional (defaults to Dockerfile command)
     startCommand: yarn start
     buildCommand: yarn; yarn build
     numInstances: 1 # optional (defaults to 1)
