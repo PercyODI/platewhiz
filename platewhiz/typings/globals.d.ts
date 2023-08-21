@@ -1,7 +1,10 @@
-import {MongoClient} from 'mongodb'
+import { MongoClient } from "mongodb";
 
-export {}
+export interface global{};
+// export {};
 
 declare global {
-    var mongoClientPromise: Promise<MongoClient>
+  namespace globalThis {
+    var mongoClientPromise: Promise<MongoClient>;
+  }
 }

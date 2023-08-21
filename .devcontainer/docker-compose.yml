@@ -1,36 +1,41 @@
-version: '3.8'
+version: "3.8"
 
 services:
   app:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
 
     volumes:
       - ../..:/workspaces:cached
-      
+
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
 
     # Runs app on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
     network_mode: service:mongodb
 
-    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
+    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
   mongodb:
+    container_name: platewhizmongo
     image: mongo:latest
     restart: unless-stopped
     volumes:
-      - mongo-data:/data/db
+      - pw-mongo-data:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     # networks:
     #   - promptopia-network
     environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: mongo
-      ME_CONFIG_MONGODB_ADMINPASSWORD: mongo
-      ME_CONFIG_MONGODB_URL: mongodb://mongo:mongo@mongo:27017/
+      # ME_CONFIG_MONGODB_ADMINUSERNAME: mongo
+      # ME_CONFIG_MONGODB_ADMINPASSWORD: mongo
+      # ME_CONFIG_MONGODB_URL: mongodb://mongo:mongo@mongo:27017/
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: mongo
+      MONGO_INITDB_ROOT_DATABASE: root-db
     # ports:
     #   - "27017:27017"
 
 volumes:
-  mongo-data:
+  pw-mongo-data:
