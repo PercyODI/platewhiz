@@ -1,40 +1,44 @@
 import Ingredient, { IngredientType } from "../models/ingredient";
 
 export const insertIngredients = async () => {
-  const tomato: IngredientType = new Ingredient({
-    name: "Tomato",
-    typeOf: [],
-    density: {
-      massVolume: {
-        mass: {
-          value: 180,
+  const tomato: IngredientType = 
+    await Ingredient.findOne({ name: "Tomato" }) ||
+    new Ingredient({
+      name: "Tomato",
+      typeOf: [],
+      density: {
+        massVolume: {
+          mass: {
+            value: 180,
+            measurement: "g",
+          },
+          volume: {
+            value: 1,
+            measurement: "cup",
+          },
+        },
+      },
+      nutrition: {
+        servingSize: {
+          value: 125,
           measurement: "g",
         },
-        volume: {
-          value: 1,
-          measurement: "cup",
-        },
+        calories: 22.5,
+        protein: 1.1,
+        fat: 0.25,
+        carbs: 4.86,
+        sugar: 3.29,
+        sodium: 6.25,
+        dataLocation:
+          "https://fdc.nal.usda.gov/fdc-app.html#/food-details/1103276/nutrients",
       },
-    },
-    nutrition: {
-      servingSize: {
-        value: 125,
-        measurement: "g",
-      },
-      calories: 22.5,
-      protein: 1.1,
-      fat: 0.25,
-      carbs: 4.86,
-      sugar: 3.29,
-      sodium: 6.25,
-      dataLocation:
-        "https://fdc.nal.usda.gov/fdc-app.html#/food-details/1103276/nutrients",
-    },
-  });
+    });
 
-  tomato.save();
+    tomato.save()
 
-  const romaTomato = new Ingredient({
+  const romaTomato = 
+    await Ingredient.findOne({ name: "Roma Tomato" }) ||
+     new Ingredient({
     name: "Roma Tomato",
     typeOf: [tomato._id],
     density: {
@@ -53,7 +57,9 @@ export const insertIngredients = async () => {
 
   romaTomato.save();
 
-  const grapeTomato: IngredientType = new Ingredient({
+  const grapeTomato: IngredientType = 
+    await Ingredient.findOne({ name: "Grape Tomato" }) ||
+     new Ingredient({
     name: "Grape Tomato",
     typeOf: [tomato._id],
     density: {
@@ -72,7 +78,9 @@ export const insertIngredients = async () => {
 
   grapeTomato.save();
 
-  const oil = new Ingredient({
+  const oil = 
+    await Ingredient.findOne({ name: "Oil" }) ||
+     new Ingredient({
     name: "Oil",
     typeOf: [], // This means it is a top level ingredient
     density: {
@@ -91,7 +99,9 @@ export const insertIngredients = async () => {
 
   oil.save();
 
-  const evoo = new Ingredient({
+  const evoo = 
+    await Ingredient.findOne({ name: "Extra Virgin Olive Oil" }) ||
+     new Ingredient({
     name: "Extra Virgin Olive Oil",
     typeOf: [oil._id],
     nutrition: {
@@ -122,16 +132,20 @@ export const insertIngredients = async () => {
     },
   });
 
-  await evoo.save()
+  await evoo.save();
 
-  const cheese: IngredientType = new Ingredient({
+  const cheese: IngredientType = 
+    await Ingredient.findOne({ name: "Cheese" }) ||
+     new Ingredient({
     name: "Cheese",
     typeof: [],
   });
 
   cheese.save();
 
-  const feta = new Ingredient({
+  const feta = 
+    await Ingredient.findOne({ name: "Feta" }) ||
+     new Ingredient({
     name: "Feta",
     typeOf: [cheese._id],
     density: {
@@ -162,7 +176,9 @@ export const insertIngredients = async () => {
 
   feta.save();
 
-  const ricotta = new Ingredient({
+  const ricotta = 
+    await Ingredient.findOne({ name: "Ricotta" }) ||
+     new Ingredient({
     name: "Ricotta",
     typeOf: [cheese._id],
     density: {
@@ -193,13 +209,17 @@ export const insertIngredients = async () => {
 
   ricotta.save();
 
-  const freshmint: IngredientType = new Ingredient({
+  const freshmint: IngredientType = 
+    await Ingredient.findOne({ name: "Fresh Mint" }) ||
+     new Ingredient({
     name: "Fresh Mint",
     typeOf: [],
   });
   freshmint.save();
 
-  const spearmint = new Ingredient({
+  const spearmint = 
+    await Ingredient.findOne({ name: "Fresh Spearmint" }) ||
+     new Ingredient({
     name: "Fresh Spearmint",
     typeOf: [freshmint._id],
     nutrition: {
@@ -232,13 +252,17 @@ export const insertIngredients = async () => {
 
   spearmint.save();
 
-  const driedmint: IngredientType = new Ingredient({
+  const driedmint: IngredientType = 
+    await Ingredient.findOne({ name: "Dried Mint" }) ||
+     new Ingredient({
     name: "Dried Mint",
     typeOf: [],
   });
 
   driedmint.save();
-  const driedspearmint = new Ingredient({
+  const driedspearmint = 
+    await Ingredient.findOne({ name: "Dried Spearmint" }) ||
+     new Ingredient({
     name: "Dried Spearmint",
     typeOf: [driedmint._id],
     nutrition: {
@@ -271,7 +295,9 @@ export const insertIngredients = async () => {
 
   driedspearmint.save();
 
-  const freshdill = new Ingredient({
+  const freshdill = 
+    await Ingredient.findOne({ name: "Fresh Dill" }) ||
+     new Ingredient({
     name: "Fresh Dill",
     typeOf: [],
     nutrition: {
@@ -303,7 +329,9 @@ export const insertIngredients = async () => {
   });
 
   freshdill.save();
-  const drieddill = new Ingredient({
+  const drieddill = 
+    await Ingredient.findOne({ name: "Dried Dill" }) ||
+     new Ingredient({
     name: "Dried Dill",
     typeOf: [],
     nutrition: {
@@ -335,7 +363,9 @@ export const insertIngredients = async () => {
   });
 
   drieddill.save();
-  const egg = new Ingredient({
+  const egg = 
+    await Ingredient.findOne({ name: "Egg" }) ||
+     new Ingredient({
     name: "Egg",
     typeOf: [],
     nutrition: {
@@ -366,7 +396,9 @@ export const insertIngredients = async () => {
   });
 
   egg.save();
-  const phyllo = new Ingredient({
+  const phyllo = 
+    await Ingredient.findOne({ name: "Phyllo Sheets" }) ||
+     new Ingredient({
     name: "Phyllo Sheets",
     typeOf: [],
     nutrition: {
@@ -397,7 +429,9 @@ export const insertIngredients = async () => {
   });
 
   phyllo.save();
-  const sesame = new Ingredient({
+  const sesame = 
+    await Ingredient.findOne({ name: "Sesame Seeds" }) ||
+     new Ingredient({
     name: "Sesame Seeds",
     typeOf: [],
     nutrition: {
