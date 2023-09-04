@@ -25,5 +25,7 @@ const Ingredient = models.Ingredient || model("Ingredient", IngredientSchema);
 
 export default Ingredient;
 
-export type IngredientType = InferSchemaType<typeof IngredientSchema> &
+export type IngredientModelType = InferSchemaType<typeof IngredientSchema> &
   Document;
+
+export type IngredientSchemaType = InferSchemaType<typeof IngredientSchema>;

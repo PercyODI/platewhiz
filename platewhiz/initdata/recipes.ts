@@ -1,9 +1,9 @@
-import Ingredient, { IngredientType } from "../models/ingredient";
+import Ingredient, { IngredientModelType } from "../models/ingredient";
 import { Recipe } from "../models/recipe";
 import { Duration } from "luxon";
 
 export const insertRecipes = async () => {
-  const allIngredients: IngredientType[] = await Ingredient.find({});
+  const allIngredients: IngredientModelType[] = await Ingredient.find({});
 
   console.log(
     allIngredients.find((i) => i.name === "Extra Virgin Olive Oil")?._id

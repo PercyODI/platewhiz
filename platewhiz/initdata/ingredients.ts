@@ -1,7 +1,7 @@
-import Ingredient, { IngredientType } from "../models/ingredient";
+import Ingredient, { IngredientModelType } from "../models/ingredient";
 
 export const insertIngredients = async () => {
-  const tomato: IngredientType = 
+  const tomato: IngredientModelType = 
     await Ingredient.findOne({ name: "Tomato" }) ||
     new Ingredient({
       name: "Tomato",
@@ -57,7 +57,7 @@ export const insertIngredients = async () => {
 
   romaTomato.save();
 
-  const grapeTomato: IngredientType = 
+  const grapeTomato: IngredientModelType = 
     await Ingredient.findOne({ name: "Grape Tomato" }) ||
      new Ingredient({
     name: "Grape Tomato",
@@ -134,7 +134,7 @@ export const insertIngredients = async () => {
 
   await evoo.save();
 
-  const cheese: IngredientType = 
+  const cheese: IngredientModelType = 
     await Ingredient.findOne({ name: "Cheese" }) ||
      new Ingredient({
     name: "Cheese",
@@ -209,7 +209,7 @@ export const insertIngredients = async () => {
 
   ricotta.save();
 
-  const freshmint: IngredientType = 
+  const freshmint: IngredientModelType = 
     await Ingredient.findOne({ name: "Fresh Mint" }) ||
      new Ingredient({
     name: "Fresh Mint",
@@ -252,7 +252,7 @@ export const insertIngredients = async () => {
 
   spearmint.save();
 
-  const driedmint: IngredientType = 
+  const driedmint: IngredientModelType = 
     await Ingredient.findOne({ name: "Dried Mint" }) ||
      new Ingredient({
     name: "Dried Mint",
