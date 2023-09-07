@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Ingredient {
+  id  String  @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  nutrition Nutrition
+}
+
+type Nutrition {
+  servingSize Quantity
+  calories  Float
+  protein Float
+  fat Float
+  carbs Float
+  sugar Float
+  sodium Float
+  dataLocation String?
+}
+
+type Quantity {
+  value Float
+  measurement Measurement
+}
+
+enum Measurement {
+  tsp
+  tbsp
+  cup
+  floz
+  g
+  lb
+  oz
+}
+
+enum MassMeasurement {
+  g
+  lb
+  oz
+}
+
+enum VolumeMeasurement {
+  tsp
+  tbsp
+  cup
+  floz
+}

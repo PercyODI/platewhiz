@@ -60,24 +60,24 @@ export const InstructionSchema = new Schema(
 export const RecipeSchema = new Schema({
   name: String,
   description: String,
-  meals: {
-    type: [String],
-    enum: [
-      "breakfast",
-      "morning snack",
-      "lunch",
-      "afternoon snack",
-      "dinner",
-      "dessert",
-    ],
-  },
+  // meals: {
+  //   type: [String],
+  //   enum: [
+  //     "breakfast",
+  //     "morning snack",
+  //     "lunch",
+  //     "afternoon snack",
+  //     "dinner",
+  //     "dessert",
+  //   ],
+  // },
   categories: [String],
   ingredients: [[RecipeIngredientSchema]],
   instructions: [InstructionSchema],
   rating: Number,
   yields: QuantitySchema,
   storage: {
-    refridgerator: {
+    refrigerator: {
       type: String,
       required: false,
     },

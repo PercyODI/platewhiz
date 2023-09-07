@@ -1,4 +1,4 @@
-import { Schema, model, models } from "mongoose";
+import { InferSchemaType, Schema, model, models } from "mongoose";
 
 export const MassQuantitySchema = new Schema(
   {
@@ -132,3 +132,5 @@ export const QuantitySchema = new Schema(
 );
 
 export const Quantity = models.Quantity || model("Quantity", QuantitySchema);
+
+export type QuantityType = InferSchemaType<typeof QuantitySchema> & Document;

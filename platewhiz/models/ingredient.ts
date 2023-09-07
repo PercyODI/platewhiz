@@ -8,7 +8,7 @@ const IngredientSchema = new Schema({
     required: true,
   },
   typeOf: {
-    type: [{ type: Schema.Types.ObjectId, ref: "Ingredient" }],
+    type: { type: Schema.Types.ObjectId, ref: "Ingredient" },
     required: true,
   },
   nutrition: {

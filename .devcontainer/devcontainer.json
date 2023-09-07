@@ -18,7 +18,9 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"esbenp.prettier-vscode"
+				"esbenp.prettier-vscode",
+				"Prisma.prisma",
+				"ms-azuretools.vscode-docker"
 			]
 		}
 	},
